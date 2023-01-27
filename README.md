@@ -92,9 +92,25 @@ preceding the variable, Java will first perform the operation of
 `firstNumber = firstNumber + 1;` before assigning the value of `firstNumber`
 to `result`. The next time when the increment operator is used is in the
 format of `firstNumber++`. When the `++` follows the variable, Java will
-access the value of `firstNumber` before completing the increment. If we add a
-line to our example that prints out the `firstNumber` variable, it will show us
-`firstNumber` has a value of 21.
+access the value of `firstNumber` before completing the increment. This is
+because:
+
+```java
+result = firstNumber++;
+```
+
+is equivalent to
+
+```java
+result = firstNumber;
+firstNumber = firstNumber + 1;
+```
+
+Therefore, `result` will be assigned the value 20 before `firstNumber` is
+incremented.
+
+To avoid these types of issues, it is best to not combine the assignment
+operator, `=`, with the increment or decrement operators in the same statement.
 
 Now let's discuss the other compound assignment operators:
 
